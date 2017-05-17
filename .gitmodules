@@ -1,6 +1,3 @@
-[submodule "src/main/resources/SimplySurFrontEnd"]
-	path = src/main/resources/SimplySurFrontEnd
-	url = https://github.com/skc382/SimplySurFrontEnd.git
 [submodule "src/main/resources/webapp/SimplySurFrontEnd"]
 	path = src/main/resources/webapp/SimplySurFrontEnd
 	url = https://github.com/skc382/SimplySurFrontEnd.git
