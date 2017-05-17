@@ -11,4 +11,5 @@ public class AppController {
     public String serveIndex() {
         return "index";
     }
+
 }
