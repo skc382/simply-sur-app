@@ -69,6 +69,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
             registry.addResourceHandler("/classes-page/**").addResourceLocations("classpath:/webapp/SimplySurFrontEnd/src/app/classes-page/");
         }
 
+        if (!registry.hasMappingForPattern("/portfolio-page/**")) {
+            registry.addResourceHandler("/portfolio-page/**").addResourceLocations("classpath:/webapp/SimplySurFrontEnd/src/app/portfolio-page/");
+        }
+
         if (!registry.hasMappingForPattern("/services/**")) {
             registry.addResourceHandler("/services/**").addResourceLocations("classpath:/webapp/SimplySurFrontEnd/src/app/services/");
         }
