@@ -25,9 +25,9 @@ import javax.annotation.PostConstruct;
 @Slf4j
 public class EmailService {
 
-    static final String FROM = "kc.sridhar@gmail.com";
+    static final String FROM = "simplysurschool@gmail.com";
 
-    static final String TO = "kc.sridhar@gmail.com";
+    static final String TO = "simplysurschool@gmail.com";
 
     static final String SUBJECT = "DO NOT REPLY - SimplySur Client Email from %s";
 
