@@ -1,20 +1,16 @@
 package com.simply.sur.service;
 
-import com.amazonaws.AmazonClientException;
-import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.simpleemail.AmazonSimpleEmailService;
 import com.amazonaws.services.simpleemail.AmazonSimpleEmailServiceClient;
-import com.amazonaws.services.simpleemail.AmazonSimpleEmailServiceClientBuilder;
 import com.amazonaws.services.simpleemail.model.*;
+import com.simply.sur.entity.AwsCredentials;
 import com.simply.sur.entity.EmailMessage;
 import com.simply.sur.entity.EmailResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -35,14 +31,14 @@ public class EmailService {
     static final String TEXTBODY = "This email was sent simply sur web application";
 
     @Autowired
-    private Environment env;
+    private AwsCredentials awsCredentials;
 
     AmazonSimpleEmailService client;
 
     @PostConstruct
     public void init() {
-        BasicAWSCredentials awsCreds = new BasicAWSCredentials(env.getProperty("aws.ses.access.key.id"),
-                env.getProperty("aws.ses.secret.access.key"));
+        BasicAWSCredentials awsCreds = new BasicAWSCredentials(awsCredentials.getAccessKeyId(),
+                awsCredentials.getSecretAccessKey());
         client = AmazonSimpleEmailServiceClient.builder()
                 .withCredentials(new AWSStaticCredentialsProvider(awsCreds))
                 .withRegion(Regions.US_WEST_2)
