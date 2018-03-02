@@ -5,7 +5,7 @@
 
 	<groupId>com.simply.sur</groupId>
 	<artifactId>simply-sur-app</artifactId>
-	<version>0.0.1-release</version>
+	<version>0.0.5</version>
 	<packaging>jar</packaging>
 
 	<name>Simply sur application</name>
