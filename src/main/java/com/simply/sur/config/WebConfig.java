@@ -41,6 +41,13 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+
+        if (!registry.hasMappingForPattern("/.well-known/**")) {
+            registry.addResourceHandler("/.well-known/**")
+                    .addResourceLocations("classpath:/.well-known/")
+                    .setCacheControl(CacheControl.maxAge(3600000, TimeUnit.MILLISECONDS));
+        }
+
         if (!registry.hasMappingForPattern("/webapp/**")) {
             registry.addResourceHandler("/webapp/**")
                     .addResourceLocations("classpath:/webapp/")
